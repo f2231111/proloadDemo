@@ -1,0 +1,41 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+body{
+	background: #eee;
+}
+.box{
+	margin: 150px 0 0 200px;
+}
+#face-btn{
+	display: block;
+	background: url(../img/qqexpression/4.gif) no-repeat;
+	text-indent: 30px;
+	color: #333;  
+}
+
+.panel{
+	width: 390px;
+	padding: 2px;
+	border: 1px solid #ccc;
+	background: #fff;
+	display: none;
+}
+.loading{
+	text-align: center;
+}
+.list li{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border:1px solid #fff;
+	margin-bottom: 5px;
+	cursor: pointer;
+}

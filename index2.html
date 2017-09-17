@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图片预加载之无序加载--QQ表情</title>
+		<link rel="stylesheet" type="text/css" href="css/style2.css"/>
+	</head>
+	<body>
+		<div class="box">
+			 <a href="javascript:;" id="face-btn">表情</a>
+			 <div class="panel">
+			 	<p class="loading">表情加载中，请稍后...</p>
+			 	
+			 </div>
+		 </div>
+		 <script type="text/javascript" src="js/jquery.js"></script>
+		 <script type="text/javascript" src="js/proload.js"></script>
+		 <script type="text/javascript">
+		 	 var $btn = $("#face-btn");
+		 	     $panel = $(".panel");
+		 	 var imgs = [];
+		 	 for(var i=0;i<30;i++){
+		 	 	imgs[i] = "img/qqexpression/"+(i+1)+".gif";
+		 	 }
+		 	 var len = imgs.length;
+		 	 $btn.on("click",function(e){
+		 	 	e.stopPropagation();
+		 	 	$panel.show();
+		 	 	$.preload(imgs,{
+		 	 		all:function(){
+		 	 			var html = '';
+		 	 			html += '<ul class="list"';
+		 	 			for(var i=0;i<len;i++){
+		 	 				html += '<li><img src="'+imgs[i]+'" alt=""></li>';
+		 	 			}
+		 	 			html += '</ul>';
+		 	 			setTimeout(function(){
+		 	 				$panel.html(html)
+		 	 			},1000)	
+		 	 		}
+		 	 	})
+		 	 });
+		 	 $(document).on("click",function(){
+		 	 	 $panel.hide();
+		 	 })
+		 </script>
+	</body>
+</html>
